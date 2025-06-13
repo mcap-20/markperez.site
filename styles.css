@@ -1,0 +1,716 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #0e1e25; /* Dark background for high-tech look */
+    color: #ffffff;
+}
+
+h1 {
+    font-size: 3rem;
+    margin: 10px 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+h2 {
+    font-size: 2rem;
+    color: #00ffcc; /* Neon color for emphasis */
+    margin-bottom: 15px;
+}
+
+header {
+    padding: 40px 0; /* Increased vertical padding for more space */
+}
+
+nav {
+    display: flex; /* Flexbox for horizontal layout */
+    justify-content: center; /* Center items */
+    margin-top: 50px;
+}
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+    margin: 0 15px; /* Space between items */
+    display: inline-flex;
+}
+
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border: 2px solid #00ffcc; 
+    border-radius: 30px;
+    transition: background 0.3s, color 0.3s, transform 0.3s;
+    font-weight: bold; 
+}
+
+nav ul li a:hover {
+    background: #00ffcc;
+    color: #0e1e25;
+    transform: scale(1.05); 
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav ul {
+        justify-content: center; /* Keep items centered */
+    }
+    
+    nav ul li {
+        margin: 0 10px; /* Adjust space between items on smaller screens */
+    }
+}
+
+
+/* Iba pang mga estilo */
+.hero {
+    background: url('your-hero-image.jpg') no-repeat center center/cover;
+    height: 50vh; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    padding: 20px; 
+    text-align: center; 
+}
+
+/* Iba pang mga estilo dito... */
+
+
+.hero h1 {
+    color: #ffffff;
+    margin: 10px 0; 
+    font-size: 4rem; 
+    font-family: 'Montserrat', sans-serif;
+}
+
+.hero h2 {
+    font-size: 3rem; 
+    color: #00ffcc; /* Neon color for emphasis */
+    margin-bottom: 15px;
+    animation: glowScale 2s infinite; /* Apply the animation */
+}
+
+@keyframes glowScale {
+    0%, 100% {
+        transform: scale(1); /* Original size */
+        text-shadow: 0 0 20px rgba(0, 255, 255, 0.7), 0 0 30px rgba(0, 204, 255, 0.5);
+    }
+    30% {
+        transform: scale(1.2); /* Grow */
+        text-shadow: 0 0 30px rgba(0, 255, 255, 1), 0 0 40px rgba(0, 204, 255, 0.7);
+    }
+}
+
+
+.hero p {
+    max-width: 600px; 
+    margin: 0 auto; 
+    font-size: 1.5rem; 
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem; 
+    }
+    .hero h1 {
+        font-size: 2.5rem; 
+    }
+    .hero h2 {
+        font-size: 2rem; 
+    }
+    .hero p {
+        font-size: 1.2rem; 
+    }
+}
+
+.about-container {
+    display: flex;
+    align-items: center;
+    margin: 40px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    max-width: 1200px;
+}
+p {
+    margin-bottom: 20px; /* Adjust the value as needed for more or less space */
+}
+
+
+.profile-pic {
+    border-radius: 50%;
+    width: 200px; /* Adjust this value for the desired size */
+    transition: transform 0.3s;
+}
+
+.profile-pic:hover {
+    transform: scale(1.1); /* Scale effect on hover */
+}
+
+
+.about-text {
+    flex: 10;
+    padding-left: 70px;
+    font-size: 18px; /* Adjust the size as needed */
+}
+
+.album-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    margin: 40px auto;
+    max-width: 1200px;
+}
+
+.album {
+    margin: 20px; /* Add spacing around each album */
+    text-align: center; /* Center text */
+}
+
+.album:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
+}
+
+.album-cover {
+    width: 100%; /* Make the cover image responsive */
+    max-width: 300px; /* Limit max width */
+    cursor: pointer; /* Indicate it’s clickable */
+    border-radius: 10px; /* Optional: round corners */
+}
+
+.album-images {
+    margin-top: 10px; /* Space between album description and images */
+}
+
+.album-image {
+    width: 100px; /* Set a fixed size for the images */
+    margin: 5px; /* Space between images */
+    border-radius: 5px; /* Optional: round corners */
+}
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.8); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    position: relative; /* For positioning controls */
+}
+
+.modal-image {
+    width: 100%; /* Set image size */
+    margin: 10px 0; /* Space around images */
+}
+
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.prev {
+    left: 10px; /* Position for previous button */
+}
+
+.next {
+    right: 10px; /* Position for next button */
+}
+
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+.album-images {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.album-images img {
+    max-width: 150px;
+    margin: 5px;
+}
+
+
+.album-image:hover {
+    transform: scale(1.05); /* Optional: scale effect on hover */
+    transition: transform 0.3s; /* Smooth transition */
+}
+
+
+.album h3 {
+    margin: 10px 0;
+    color: #00ffcc; /* Neon color for titles */
+}
+
+.album p {
+    padding: 0 10px;
+    color: #ffffff; /* White text for descriptions */
+}
+
+
+.carousel {
+    position: relative;
+    overflow: hidden;
+    margin: 20px auto;
+    max-width: 500px;
+}
+
+.carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.carousel-item {
+    min-width: 100%; /* Show one image at a time */
+    box-sizing: border-box;
+    width: 100%;
+    border: solid #6d81f6 10px;
+    padding: 5px;
+    margin-bottom: 20px;
+    display: flex; /* Flexbox layout */
+    flex-direction: column; /* Stack title and image vertically */
+    align-items: center; /* Center content horizontally */
+    justify-content: center; /* Center content vertically */
+    text-align: center; /* Center text */
+    padding: 20px; /* Padding around content */
+    min-height: 300px; /* Ensure a minimum height for the carousel item */
+}
+
+.carousel-item h3 {
+    margin-bottom: 15px; /* Space between title and image */
+    color: #faf8f8; /* Text color */
+    font-size: 18px; /* Font size */
+    font-weight: bold; /* Bold title */
+}
+
+.carousel-item img {
+    margin-top: 20px; /* Space above the image */
+    margin-bottom: 20px; /* Space below the image */
+    width: 100%; /* Make image responsive */
+    height: auto; /* Keep aspect ratio */
+}
+
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    transition: background 0.3s;
+}
+
+.carousel-control:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+.education-list, .work-list, .tools-list {
+    margin: 20px auto;
+    max-width: 600px; /* Reduced max-width for narrower lists */
+    text-align: center; /* Center align the text */
+}
+
+.education-item, .work-item, .tool-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    margin: 10px auto; /* Center each item */
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
+    width: 90%; /* Make items a percentage of the container */
+}
+
+/* Hover effect for each individual sentence */
+.education-item span:hover, .work-item span:hover, .tool-item span:hover,
+.education-item h3:hover, .work-item h3:hover, .tool-item h3:hover {
+    color: #ff9d00; /* Change text color to gold on hover */
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+/* Optional: To make sure the other text elements don't change */
+.education-item span, .work-item span, .tool-item span,
+.education-item h3, .work-item h3, .tool-item h3 {
+    transition: color 0.3s ease;
+}
+
+.work-list {
+    list-style: none; /* Remove default bullets */
+    padding: 0; /* Remove padding */
+}
+
+.work-list li {
+    background: rgba(255, 255, 255, 0.1); /* Slight background for list items */
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px; /* Rounded corners */
+    display: flex;
+    align-items: center; /* Align icon and text */
+}
+
+.work-list li i {
+    color: #00ffcc; /* Icon color */
+    margin-right: 10px; /* Space between icon and text */
+}
+
+
+.progress-bar {
+    position: relative;
+    background: #e0e0e0;
+    border-radius: 5px;
+    overflow: hidden;
+    height: 20px; /* Taas ng progress bar */
+}
+
+.progress {
+    background: #04796b; /* Neon color para sa progress */
+    height: 100%; /* Punuin ang taas ng parent */
+}
+
+.progress-text {
+    position: absolute;
+    left: 50%; /* I-center ito nang pahalang */
+    top: 50%; /* I-center ito nang patayo */
+    transform: translate(-50%, -50%); /* Ayusin para sa pag-center */
+    color: rgba(0, 0, 0, 0.5); /* Gawing hindi matingkad ang kulay */
+    font-weight: bold; /* Bold na teksto */
+}
+
+
+.tools-list {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    justify-content: center; /* Center the items */
+    max-width: 1200px; /* Limit the width */
+    margin: 0 auto; /* Center the container */
+}
+
+.tool-item {
+    flex: 0 0 calc(25% - 20px); /* Set each item to take 25% minus spacing *
+    margin: 10px; /* Add spacing between items */
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px hsla(170, 96%, 48%, 0.5);
+}
+.phone-contact {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the content */
+    font-size: 2rem; /* Font size */
+    transition: transform 0.2s ease; /* Smooth transition */
+}
+
+.phone-contact:hover {
+    transform: scale(1.2); /* Lumalaki ng 20% kapag hover */
+}
+
+
+.social-icons {
+    margin-top: 20px; /* Space above the social icons */
+    display: flex;
+    justify-content: center; /* Center the icons */
+    gap: 20px; /* Space between icons */
+}
+
+.social-icons a {
+    color: #ffffff; /* Default icon color */
+    font-size: 2rem; /* Adjust icon size */
+    transition: color 0.3s; /* Smooth transition for hover effect */
+    margin: 0 15px; /* Adjust the value as needed */
+}
+
+.social-icons a.facebook:hover {
+    color: #3b5998; /* Facebook blue */
+}
+
+.social-icons a.yahoo:hover {
+    color: #720e9e; /* Yahoo purple */
+}
+
+.social-icons a.gmail:hover {
+    color: #db4437; /* Gmail red */
+}
+
+
+.section {
+    text-align: center; /* Center the text of all sections */
+    margin: 40px 0; /* Add some vertical spacing between sections */
+}
+
+.section h2 {
+    margin-bottom: 15px; /* Adjust bottom margin for the headings */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profile-frame {
+        margin-bottom: 20px;
+    }
+}
+/* Media Queries */
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column; /* Stack elements */
+    }
+
+    .album-grid, .tools-list {
+        flex-direction: column; /* Stack items on small screens */
+        align-items: center;
+    }
+
+    .album, .tool-item {
+        width: 100%; /* Full width for mobile */
+        margin: 10px 0; /* Vertical spacing */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 30px 10px; /* Smaller padding for mobile */
+    }
+    
+    h1 {
+        font-size: 1.5em; /* Responsive font size */
+    }
+}
+img {
+    max-width: 100%; /* Make images responsive */
+    height: auto; /* Maintain aspect ratio */
+}
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem; /* Mas maliit na font size sa mobile */
+    }
+    .hero h1 {
+        font-size: 2.5rem; /* I-adjust din ito */
+    }
+}
+.links-container {
+    display: flex;
+    justify-content: center; /* Center the items */
+    gap: 50px; /* Adjust gap between columns */
+}
+
+.video-links, .website-links {
+    width: 300px; /* Set a specific width for each column */
+    margin: 0; /* Remove margin */
+    border: 2px solid #00ffcc; /* Frame color */
+    border-radius: 10px; /* Rounded corners */
+    padding: 15px; /* Inner padding for content */
+    background: rgba(0, 0, 0, 0.3); /* Slight background for contrast */
+}
+
+.video-links h3, .website-links h3 {
+    margin-bottom: 10px; /* Reduced space below the heading */
+    color: #00ffcc; /* Neon color for emphasis */
+}
+
+/* Other styles remain unchanged */
+
+
+.video-links ul, .website-links ul {
+    list-style: none; /* Remove default bullets */
+    padding: 0; /* Remove padding */
+}
+
+.video-links li, .website-links li {
+    margin: 10px 0; /* Reduced space between items */
+}
+
+.video-links a, .website-links a {
+    color: #ffffff; /* Link color */
+    text-decoration: none; /* No underline */
+    transition: color 0.3s; /* Smooth transition */
+}
+
+.video-links a:hover, .website-links a:hover {
+    color: #ff9d00; /* Change color on hover */
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: rgb(28, 39, 49);
+    color: white;
+}
+
+.certificates {
+    border: 2px solid #666; /* Medium gray solid border */
+    background: rgba(255, 255, 255, 0.05); /* Slightly darker */
+    padding: 20px;
+    margin: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.education {
+    border: 2px solid #888; /* Light gray solid border */
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    margin: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.work-experience {
+    border: 2px solid #aaa; /* Gray solid border */
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    margin: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.tools-software {
+    border: 2px solid #bbb; /* Light gray solid border */
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    margin: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.contact {
+    border: 2px solid #ddd;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    margin: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+.window-controls {
+    display: flex;
+    justify-content: center;
+    padding: 0px 0;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin: 0 5px;
+}
+
+.red {
+    background-color: #ff605c; /* Red dot */
+}
+
+.yellow {
+    background-color: #ffbd44; /* Yellow dot */
+}
+
+.green {
+    background-color: #00ca56; /* Green dot */
+}
+.projects-section {
+    background-color: rgba(1, 29, 36, 0.5); /* Light gray background */
+    padding: 20px;
+}
+
+.macbook-frame {
+    background-color: #252525;
+    border: 16px solid #000; /* Black border for the frame */
+    border-radius: 20px; /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    position: relative; /* For positioning carousel controls */
+    width: 70%; /* Adjust width as needed */
+    margin: 0 auto; /* Center the frame */
+}
+.certificates, .education, .work-experience, .tools-software, .contact {
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.05);
+    margin: 10px auto;  /* Reduced margin to make sections closer */
+    padding: 15px;      /* Reduced padding to decrease the empty space */
+    width: 100%;        /* Ensure the sections take full width */
+    max-width: 1100px;  /* Set a max-width to control their overall width */
+}
+
+.certificates, .education, .work-experience {
+    border: 2px solid #666;  /* Different border colors for sections */
+}
+
+.tools-software {
+    border: 2px solid #bbb;
+}
+
+.contact {
+    border: 2px solid #ddd;
+}
+
+/* For sections on smaller screens */
+@media (max-width: 768px) {
+    .certificates, .education, .work-experience, .tools-software, .contact {
+        padding: 10px; /* Decrease padding for small screens */
+        margin: 10px 5px; /* Reduce the margin to avoid too much space */
+    }
+}
+
+/* Additional fine-tuning for smaller content */
+@media (max-width: 480px) {
+    .certificates, .education, .work-experience, .tools-software, .contact {
+        padding: 10px;  /* Reduce padding further for mobile */
+        margin: 8px 0;   /* Reduce margin for smaller screen sizes */
+    }
+}
